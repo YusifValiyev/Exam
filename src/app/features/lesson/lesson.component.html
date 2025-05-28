@@ -1,0 +1,33 @@
+<app-new-lesson *ngIf="isCreate" (close)="closeModal()" />
+
+<div class="container">
+    <header>
+        <h2>Dərs Siyahısı</h2>
+        <button (click)="openModal()">Yeni Dərs Əlavə Et</button>
+    </header>
+    <table
+        border="1"
+        cellpadding="8"
+        cellspacing="0"
+        style="width: 100%; border-collapse: collapse"
+    >
+        <thead>
+            <tr>
+                <th>Dərsin Kodu</th>
+                <th>Dərsin Adı</th>
+                <th>Sinif</th>
+                <th>Müəllim Adı</th>
+                <th>Müəllim Soyadı</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lesson of lessons">
+                <td>{{ lesson.code }}</td>
+                <td>{{ lesson.name }}</td>
+                <td>{{ lesson.class }}</td>
+                <td>{{ lesson.teacherName }}</td>
+                <td>{{ lesson.teacherSurname }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

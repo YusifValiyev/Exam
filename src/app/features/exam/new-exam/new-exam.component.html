@@ -1,0 +1,105 @@
+<div class="backdrop">
+    <dialog open>
+        <form [formGroup]="examForm" (ngSubmit)="onSubmit()">
+            <h3>Yeni İmtahan Əlavə Et</h3>
+
+            <label>
+                Dərs Kodu:
+                <select formControlName="lessonCode">
+                    <option
+                        *ngFor="let lesson of lessons"
+                        [value]="lesson.code + '_' + lesson.class"
+                    >
+                        {{
+                            lesson.code +
+                                " - " +
+                                lesson.name +
+                                " - " +
+                                lesson.class +
+                                " sinif"
+                        }}
+                    </option>
+                </select>
+                <div
+                    class="error"
+                    *ngIf="
+                        examForm.get('lessonCode')?.touched &&
+                        examForm.get('lessonCode')?.invalid
+                    "
+                >
+                    <small>Dərs kodu tələb olunur.</small>
+                </div>
+            </label>
+
+            <label>
+                Şagird Nömrəsi:
+                <select formControlName="studentId">
+                    <option
+                        *ngFor="let student of students"
+                        [value]="student.studentNumber"
+                    >
+                        {{
+                            student.studentNumber +
+                                " - " +
+                                student.name +
+                                " " +
+                                student.surname
+                        }}
+                    </option>
+                </select>
+                <div
+                    class="error"
+                    *ngIf="
+                        examForm.get('studentId')?.touched &&
+                        examForm.get('studentId')?.invalid
+                    "
+                >
+                    <small>Şagird nömrəsi tələb olunur.</small>
+                </div>
+            </label>
+
+            <label>
+                İmtahan Tarixi:
+                <input type="date" formControlName="date" />
+                <div
+                    class="error"
+                    *ngIf="
+                        examForm.get('date')?.touched &&
+                        examForm.get('date')?.invalid
+                    "
+                >
+                    <small>İmtahan tarixi tələb olunur.</small>
+                </div>
+            </label>
+
+            <label>
+                Qiymət:
+                <input type="number" formControlName="grade" />
+                <div
+                    class="error"
+                    *ngIf="
+                        examForm.get('grade')?.touched &&
+                        examForm.get('grade')?.invalid
+                    "
+                >
+                    <small *ngIf="examForm.get('grade')?.errors?.['required']"
+                        >Qiymət tələb olunur.</small
+                    >
+                    <small *ngIf="examForm.get('grade')?.errors?.['min']"
+                        >Ən azı 0 ola bilər.</small
+                    >
+                    <small *ngIf="examForm.get('grade')?.errors?.['max']"
+                        >Ən çoxu 100 ola bilər.</small
+                    >
+                </div>
+            </label>
+
+            <div class="modal-actions">
+                <button type="submit" [disabled]="examForm.invalid">
+                    Əlavə Et
+                </button>
+                <button type="button" (click)="onClose()">Bağla</button>
+            </div>
+        </form>
+    </dialog>
+</div>

@@ -1,27 +1,78 @@
-# Examtask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+# 📘 Exam Registration System
 
-## Development server
+Bu Angular tətbiqi dərs, şagird və imtahan məlumatlarının idarə olunmasını təmin edir. İstifadəçilər dərs əlavə edə, şagirdləri qeyd edə və imtahan nəticələrini daxil edə bilərlər.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 📁 Layihə Strukturu
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+src/
+ ┣ app/
+ ┃ ┣ lesson/           # Dərslərlə bağlı komponent və service
+ ┃ ┣ student/          # Şagirdlərlə bağlı komponent və service
+ ┃ ┣ exam/             # İmtahan qeydiyyatı komponent və service
+ ┃ ┣ core/             # Model faylları (lesson.model.ts, student.model.ts və s.)
+ ┣ assets/             # Stil və şəkillər
+```
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Texnologiyalar
 
-## Running unit tests
+- Angular (v15+)
+- TypeScript
+- HTML / CSS
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## ⚙️ Quraşdırma və İşə Salma
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Repository-ni klonlayın:**
 
-## Further help
+```bash
+git clone https://github.com/sizin-username/exam-app.git
+cd exam-app
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+2. **Lazımi paketləri yükləyin:**
+
+```bash
+npm install
+```
+
+3. **Tətbiqi işlədin:**
+
+```bash
+ng serve
+```
+
+4. Brauzerə daxil olun:
+
+```
+http://localhost:4200
+```
+
+---
+
+## 🧠 İstifadə Qaydası
+
+- **Dərs əlavə et:** `Lesson` bölməsində dərs adı, kodu və sinif məlumatı daxil edilərək yeni dərs yaradılır.
+- **Şagird əlavə et:** `Student` bölməsində ad, nömrə və sinif məlumatı daxil edilərək yeni şagird yaradılır.
+- **İmtahan əlavə et:** `Exam` bölməsində mövcud dərslərdən biri seçilir və uyğun sinifə aid şagirdlər siyahıya düşür. Şagird, tarix və qiymət daxil edilərək imtahan qeyd edilir.
+
+---
+
+## ✅ Gələcək Planlar
+
+- Backend əlavə olunması (Node.js / Firebase və s.)
+- İstifadəçi qeydiyyatı və giriş
+- Qrafiklərlə nəticə analizi
+
+---
+
+## 🤝 Müəllif
+
+- Yusif Vəliyev
+- Frontend Developer

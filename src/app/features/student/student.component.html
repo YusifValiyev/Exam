@@ -1,0 +1,31 @@
+<app-new-student *ngIf="isCreate" (close)="closeModal()" />
+
+<div class="container">
+    <header>
+        <h2>Şagird Siyahısı</h2>
+        <button (click)="openModal()">Yeni Şagird Əlavə Et</button>
+    </header>
+    <table
+        border="1"
+        cellpadding="8"
+        cellspacing="0"
+        style="width: 100%; border-collapse: collapse"
+    >
+        <thead>
+            <tr>
+                <th>Şagirdin nömrəsi</th>
+                <th>Şagirdin adı</th>
+                <th>Şagirdin soyadı</th>
+                <th>Şagirdin sinifi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of students">
+                <td>{{ student.studentNumber }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.surname }}</td>
+                <td>{{ student.class }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

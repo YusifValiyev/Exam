@@ -1,0 +1,99 @@
+<div class="backdrop">
+    <dialog open>
+        <form [formGroup]="lessonForm" (ngSubmit)="onSubmit()">
+            <h3>Yeni Dərs Əlavə Et</h3>
+
+            <label>
+                Dərs Kodu:
+                <input formControlName="code" maxlength="3" />
+                <div
+                    class="error"
+                    *ngIf="
+                        lessonForm.get('code')?.touched &&
+                        lessonForm.get('code')?.invalid
+                    "
+                >
+                    <small *ngIf="lessonForm.get('code')?.errors?.['required']"
+                        >Dərs kodu tələb olunur.</small
+                    >
+                    <small
+                        *ngIf="lessonForm.get('code')?.errors?.['minlength'] || lessonForm.get('code')?.errors?.['maxlength']"
+                    >
+                        Dərs kodu 3 simvol olmalıdır.
+                    </small>
+                </div>
+            </label>
+
+            <label>
+                Dərs Adı:
+                <input formControlName="name" />
+                <div
+                    class="error"
+                    *ngIf="
+                        lessonForm.get('name')?.touched &&
+                        lessonForm.get('name')?.invalid
+                    "
+                >
+                    <small>Dərs adı tələb olunur.</small>
+                </div>
+            </label>
+
+            <label>
+                Sinif:
+                <input type="number" formControlName="class" />
+                <div
+                    class="error"
+                    *ngIf="
+                        lessonForm.get('class')?.touched &&
+                        lessonForm.get('class')?.invalid
+                    "
+                >
+                    <small *ngIf="lessonForm.get('class')?.errors?.['required']"
+                        >Sinif daxil edilməlidir.</small
+                    >
+                    <small *ngIf="lessonForm.get('class')?.errors?.['min']"
+                        >Ən azı 1-ci sinif ola bilər.</small
+                    >
+                    <small *ngIf="lessonForm.get('class')?.errors?.['max']"
+                        >Ən çoxu 11-ci sinif ola bilər.</small
+                    >
+                </div>
+            </label>
+
+            <label>
+                Müəllim Adı:
+                <input formControlName="teacherName" />
+                <div
+                    class="error"
+                    *ngIf="
+                        lessonForm.get('teacherName')?.touched &&
+                        lessonForm.get('teacherName')?.invalid
+                    "
+                >
+                    <small>Müəllim adı tələb olunur.</small>
+                </div>
+            </label>
+
+            <label>
+                Müəllim Soyadı:
+                <input formControlName="teacherSurname" />
+                <div
+                    class="error"
+                    *ngIf="
+                        lessonForm.get('teacherSurname')?.touched &&
+                        lessonForm.get('teacherSurname')?.invalid
+                    "
+                >
+                    <small>Müəllim soyadı tələb olunur.</small>
+                </div>
+            </label>
+
+            <div class="modal-actions">
+                <button type="submit" [disabled]="lessonForm.invalid">
+                    Əlavə Et
+                </button>
+                <button type="button" (click)="onClose()">Bağla</button>
+            </div>
+        </form>
+    </dialog>
+</div>

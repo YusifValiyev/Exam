@@ -1,0 +1,87 @@
+<div class="backdrop">
+    <dialog open>
+        <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+            <h3>Yeni Şagird Əlavə Et</h3>
+
+            <label>
+                Şagirdin Nömrəsi:
+                <input formControlName="studentNumber" maxlength="5" />
+                <div
+                    class="error"
+                    *ngIf="
+                        studentForm.get('studentNumber')?.touched &&
+                        studentForm.get('studentNumber')?.invalid
+                    "
+                >
+                    <small
+                        *ngIf="studentForm.get('studentNumber')?.errors?.['required']"
+                        >Nömrə tələb olunur.</small
+                    >
+                    <small
+                        *ngIf="studentForm.get('studentNumber')?.errors?.['minlength'] || studentForm.get('studentNumber')?.errors?.['maxlength']"
+                    >
+                        Nömrə 5 simvoldan ibarət olmalıdır.
+                    </small>
+                </div>
+            </label>
+
+            <label>
+                Şagirdin Adı:
+                <input formControlName="name" />
+                <div
+                    class="error"
+                    *ngIf="
+                        studentForm.get('name')?.touched &&
+                        studentForm.get('name')?.invalid
+                    "
+                >
+                    <small>Ad tələb olunur.</small>
+                </div>
+            </label>
+
+            <label>
+                Şagirdin Soyadı:
+                <input formControlName="surname" />
+                <div
+                    class="error"
+                    *ngIf="
+                        studentForm.get('surname')?.touched &&
+                        studentForm.get('surname')?.invalid
+                    "
+                >
+                    <small>Soyad tələb olunur.</small>
+                </div>
+            </label>
+
+            <label>
+                Şagirdin Sinifi:
+                <input type="number" formControlName="class" />
+                <div
+                    class="error"
+                    *ngIf="
+                        studentForm.get('class')?.touched &&
+                        studentForm.get('class')?.invalid
+                    "
+                >
+                    <small
+                        *ngIf="studentForm.get('class')?.errors?.['required']"
+                        >Sinif tələb olunur.</small
+                    >
+                    <small *ngIf="studentForm.get('class')?.errors?.['min']"
+                        >Sinif minimum 1 ola bilər.</small
+                    >
+                    <small *ngIf="studentForm.get('class')?.errors?.['max']"
+                        >Sinif maksimum 11 ola bilər.</small
+                    >
+                </div>
+            </label>
+
+            <div class="modal-actions">
+                <button type="submit" [disabled]="studentForm.invalid">
+                    Əlavə Et
+                </button>
+                <button type="button" (click)="onClose()">Bağla</button>
+            </div>
+        </form>
+    </dialog>
+</div>

@@ -1,0 +1,32 @@
+<app-new-exam *ngIf="isCreate" (close)="closeModal()" />
+
+<div class="container">
+    <header>
+        <h2>Imtahan Siyahısı</h2>
+        <button (click)="openModal()">Yeni Imtahan Əlavə Et</button>
+    </header>
+
+    <table
+        border="1"
+        cellpadding="8"
+        cellspacing="0"
+        style="width: 100%; border-collapse: collapse"
+    >
+        <thead>
+            <tr>
+                <th>Dərsin Kodu</th>
+                <th>Şagirdin Nömrəsi</th>
+                <th>İmtahan Tarixi</th>
+                <th>Qiyməti</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let exam of exams">
+                <td>{{ exam.lessonCode }}</td>
+                <td>{{ exam.studentId }}</td>
+                <td>{{ exam.date }}</td>
+                <td>{{ exam.grade }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
