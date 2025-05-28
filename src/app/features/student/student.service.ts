@@ -8,36 +8,33 @@ export class StudentService {
     private key = "students";
     private students: Student[] = [];
 
+    constructor() {
+        const data = localStorage.getItem(this.key);
+        this.students = data ? JSON.parse(data) : [];
+    }
+
     saveStudents() {
         localStorage.setItem(this.key, JSON.stringify(this.students));
     }
 
     getStudents() {
-        const data = localStorage.getItem(this.key);
-        this.students = data ? JSON.parse(data) : [];
         return this.students;
     }
 
     getStudentByClass(lessonClass: number) {
-        this.getStudents();
-        return this.students.filter((student) => student.class === lessonClass);
+        return this.students.filter(student => student.class === lessonClass);
     }
 
-    addStudent(student: Student) {
+    addStudent(student: Student): boolean {
         if (this.studentIsExist(student.studentNumber)) {
-            alert("Bu kod ile sagird movcuddur");
-            return;
+            return false;
         }
         this.students.push(student);
         this.saveStudents();
+        return true;
     }
 
     studentIsExist(studentNumber: number) {
-        this.getStudents();
-        return this.students.find(
-            (student) => student.studentNumber === studentNumber
-        )
-            ? true
-            : false;
+        return this.students.some(student => student.studentNumber === studentNumber);
     }
 }

@@ -32,8 +32,8 @@ src/
 1. **Repository-ni klonlayın:**
 
 ```bash
-git clone https://github.com/sizin-username/exam-app.git
-cd exam-app
+git clone https://github.com/sizin-username/Exam.git
+cd Exam
 ```
 
 2. **Lazımi paketləri yükləyin:**
@@ -58,8 +58,8 @@ http://localhost:4200
 
 ## 🧠 İstifadə Qaydası
 
-- **Dərs əlavə et:** `Lesson` bölməsində dərs adı, kodu və sinif məlumatı daxil edilərək yeni dərs yaradılır.
-- **Şagird əlavə et:** `Student` bölməsində ad, nömrə və sinif məlumatı daxil edilərək yeni şagird yaradılır.
+- **Dərs əlavə et:** `Lesson` bölməsində dərs kodu, adı ,sinif və müəllim məlumatları daxil edilərək yeni dərs yaradılır.
+- **Şagird əlavə et:** `Student` bölməsində nömrə, sinif və şagird məlumatları daxil edilərək yeni şagird yaradılır.
 - **İmtahan əlavə et:** `Exam` bölməsində mövcud dərslərdən biri seçilir və uyğun sinifə aid şagirdlər siyahıya düşür. Şagird, tarix və qiymət daxil edilərək imtahan qeyd edilir.
 
 ---

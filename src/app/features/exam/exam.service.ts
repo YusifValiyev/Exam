@@ -9,12 +9,15 @@ export class ExamService {
     private key = "exams";
     private exams: Exam[] = [];
 
-    saveExams(){
+    constructor() {
+        const data = localStorage.getItem(this.key);
+        this.exams = data ? JSON.parse(data) : [];
+    }
+
+    saveExams() {
         localStorage.setItem(this.key, JSON.stringify(this.exams));
     }
     getExams() {
-        const data = localStorage.getItem(this.key);
-        this.exams = data ? JSON.parse(data) : [];
         return this.exams;
     }
 

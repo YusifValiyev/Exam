@@ -46,8 +46,6 @@ export class NewStudentComponent {
             studentNumber:Number(this.studentForm.value.studentNumber),
             class:Number(this.studentForm.value.class)
         }
-        console.log(newStudent);
-        this.studentService.addStudent(newStudent);
-        this.onClose();
+        this.studentService.addStudent(newStudent) ? this.onClose() : alert("Şagird artıq mövcuddur")
     }
 }
